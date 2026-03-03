@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: indie-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=db;Database=IndieCloudDb;User=sa;Password=${SA_PASSWORD};TrustServerCertificate=True"
+      ASPNETCORE_ENVIRONMENT: "Production"
+    networks:
+      - indie-network
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: indie-sql
+    restart: unless-stopped
+    environment:
+      SA_PASSWORD: "${SA_PASSWORD}"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - indie_sql_data:/var/opt/mssql
+    networks:
+      - indie-network
+
+networks:
+  indie-network:
+
+volumes:
+  indie_sql_data:

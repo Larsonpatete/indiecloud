@@ -1,0 +1,69 @@
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\appsettings.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\IndieCloud.staticwebassets.endpoints.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\IndieCloud.exe
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\IndieCloud.deps.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\IndieCloud.runtimeconfig.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\IndieCloud.dll
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\IndieCloud.pdb
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.csproj.AssemblyReference.cache
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.AssemblyInfoInputs.cache
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.AssemblyInfo.cs
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.csproj.CoreCompileInputs.cache
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\scopedcss\bundle\IndieCloud.styles.css
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.csproj.Up2Date
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.dll
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\refint\IndieCloud.dll
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.pdb
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\IndieCloud.genruntimeconfig.cache
+C:\Users\Larson Patete\source\repos\IndieCloud\IndieCloud\obj\Debug\net10.0\ref\IndieCloud.dll
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\appsettings.Development.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\appsettings.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\IndieCloud.staticwebassets.endpoints.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\IndieCloud.exe
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\IndieCloud.deps.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\IndieCloud.runtimeconfig.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\IndieCloud.dll
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\IndieCloud.pdb
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\bin\Debug\net10.0\Microsoft.OpenApi.dll
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.csproj.AssemblyReference.cache
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\rpswa.dswa.cache.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.GeneratedMSBuildEditorConfig.editorconfig
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.AssemblyInfoInputs.cache
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.AssemblyInfo.cs
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.csproj.CoreCompileInputs.cache
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.MvcApplicationPartsAssemblyInfo.cs
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.MvcApplicationPartsAssemblyInfo.cache
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.sourcelink.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\rjimswa.dswa.cache.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\scopedcss\bundle\IndieCloud.styles.css
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\staticwebassets.build.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\staticwebassets.build.json.cache
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\staticwebassets.development.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\swae.build.ex.cache
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.csproj.Up2Date
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.dll
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\refint\IndieCloud.dll
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.pdb
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\IndieCloud.genruntimeconfig.cache
+\\wsl.localhost\Ubuntu\home\larson_patete\repos\indiecloud\IndieCloud\obj\Debug\net10.0\ref\IndieCloud.dll

@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|c:\\users\\larson patete\\source\\repos\\indiecloud\\indiecloud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|solutionrelative:indiecloud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|c:\\users\\larson patete\\source\\repos\\indiecloud\\indiecloud\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|solutionrelative:indiecloud\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|c:\\users\\larson patete\\source\\repos\\indiecloud\\indiecloud\\indiecloud.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|solutionrelative:indiecloud\\indiecloud.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|c:\\users\\larson patete\\source\\repos\\indiecloud\\indiecloud\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|solutionrelative:indiecloud\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|c:\\users\\larson patete\\source\\repos\\indiecloud\\indiecloud\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCAC5326-0015-42FE-8277-C26A46BBA0CB}|IndieCloud\\IndieCloud.csproj|solutionrelative:indiecloud\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\Dockerfile",
+              "RelativeDocumentMoniker": "IndieCloud\\Dockerfile",
+              "ToolTip": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\Dockerfile",
+              "RelativeToolTip": "IndieCloud\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-28T00:43:20.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IndieCloud.http",
+              "DocumentMoniker": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\IndieCloud.http",
+              "RelativeDocumentMoniker": "IndieCloud\\IndieCloud.http",
+              "ToolTip": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\IndieCloud.http",
+              "RelativeToolTip": "IndieCloud\\IndieCloud.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-02-28T00:43:16.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "IndieCloud\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\WeatherForecast.cs",
+              "RelativeToolTip": "IndieCloud\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T00:42:57.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\Program.cs",
+              "RelativeDocumentMoniker": "IndieCloud\\Program.cs",
+              "ToolTip": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\Program.cs",
+              "RelativeToolTip": "IndieCloud\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T00:42:57.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "IndieCloud\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\Larson Patete\\source\\repos\\IndieCloud\\IndieCloud\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "IndieCloud\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T00:42:53.528Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

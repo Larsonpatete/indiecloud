@@ -1,0 +1,5 @@
+@IndieCloud_HostAddress = http://localhost:32770
+GET {{IndieCloud_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
