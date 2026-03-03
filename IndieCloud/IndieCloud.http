@@ -1,5 +1,16 @@
-@IndieCloud_HostAddress = http://localhost:32770
-GET {{IndieCloud_HostAddress}}/weatherforecast/
-Accept: application/json
+@IndieCloud_HostAddress = http://localhost:8080
+GET {{IndieCloud_HostAddress}}/Stream
+Accept: text/event-stream
 
 ###
+
+POST {{IndieCloud_HostAddress}}/Stream
+Content-Type: application/json
+{
+  "Chat": "Message 2"
+}
+
+###
+GET {{IndieCloud_HostAddress}}/Stream?limit=3
+Accept: text/event-stream
+

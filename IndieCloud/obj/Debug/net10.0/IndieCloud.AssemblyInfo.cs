@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IndieCloud")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c9dd69e279b9da65979ed25418ef68bdc39b02c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa4a203782c9bb11387220cc0a92e2e5e974750a")]
 [assembly: System.Reflection.AssemblyProductAttribute("IndieCloud")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IndieCloud")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

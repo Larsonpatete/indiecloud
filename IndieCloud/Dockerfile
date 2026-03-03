@@ -12,16 +12,15 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["IndieCloud/IndieCloud.csproj", "IndieCloud/"]
-RUN dotnet restore "./IndieCloud/IndieCloud.csproj"
+COPY ["IndieCloud.csproj", "./"]
+RUN dotnet restore "IndieCloud.csproj"
 COPY . .
-WORKDIR "/src/IndieCloud"
-RUN dotnet build "./IndieCloud.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "IndieCloud.csproj" -c Release -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./IndieCloud.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "IndieCloud.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
