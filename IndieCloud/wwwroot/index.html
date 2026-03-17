@@ -6,6 +6,14 @@
     <title>IndieCloud Stream</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    
+    <!-- Fallback tags for devices without HTTPS/ServiceWorkers enabled (like Tailscale IPs) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Stream">
+    <link rel="apple-touch-icon" href="/icon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    
     <meta name="theme-color" content="#007bff">
     <style>
         :root {
