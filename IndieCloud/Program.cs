@@ -26,6 +26,9 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
+app.UseDefaultFiles(); // Serves index.html automatically on '/'
+app.UseStaticFiles();  // Serves files from the wwwroot folder
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IndieCloud Stream</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <meta name="theme-color" content="#007bff">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #f1f1f1;
+            --accent-color: #007bff;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: var(--card-bg);
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        header img {
+            width: 24px;
+            height: 24px;
+        }
+        main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .message {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            word-wrap: break-word;
+        }
+        .message .meta {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .message .content {
+            font-size: 1rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+        }
+        footer {
+            padding: 15px;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 10px;
+        }
+        textarea {
+            flex: 1;
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 1rem;
+            resize: none;
+            height: 24px;
+            font-family: inherit;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:active {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="/icon.svg" alt="Logo">
+        IndieCloud Stream
+    </header>
+
+    <main id="stream-container">
+        <!-- Messages will pop in here -->
+    </main>
+
+    <footer>
+        <textarea id="chat-input" placeholder="Push to stream..." rows="1"></textarea>
+        <button id="send-btn" onclick="postMessage()">Send</button>
+    </footer>
+
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(reg => {
+                    console.log('ServiceWorker registered');
+                }).catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+        const container = document.getElementById('stream-container');
+        const input = document.getElementById('chat-input');
+
+        // Allow sending with Enter key (but Shift+Enter for newline)
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                postMessage();
+            }
+        });
+
+        async function loadStream() {
+            try {
+                // The API endpoint is /Stream
+                const res = await fetch('/Stream?limit=50');
+                if (!res.ok) return;
+                
+                const messages = await res.json();
+                container.innerHTML = '';
+                
+                // Messages come down ordered by descending timestamp, we will keep them that way
+                // so newest is at the top, or reverse them if we want newest at bottom.
+                // Let's put newest at the bottom for a chat feel, so we reverse the array.
+                messages.reverse().forEach(msg => {
+                    const div = document.createElement('div');
+                    div.className = 'message';
+                    
+                    const date = new Date(msg.timeStamp).toLocaleString();
+                    
+                    // Simple device parser to just get main OS/Browser instead of huge UserAgent string
+                    let shortDevice = msg.device || 'Unknown';
+                    if (shortDevice.includes('iPhone')) shortDevice = 'iPhone';
+                    else if (shortDevice.includes('Android')) shortDevice = 'Android';
+                    else if (shortDevice.includes('Linux')) shortDevice = 'Linux';
+                    else if (shortDevice.includes('Windows')) shortDevice = 'Windows';
+                    else if (shortDevice.includes('Mac')) shortDevice = 'Mac';
+                    
+                    div.innerHTML = `
+                        <div class="meta">
+                            <span>${shortDevice}</span>
+                            <span>${date}</span>
+                        </div>
+                        <div class="content">${escapeHtml(msg.chat)}</div>
+                    `;
+                    container.appendChild(div);
+                });
+                
+                // Scroll to bottom
+                container.scrollTop = container.scrollHeight;
+            } catch (err) {
+                console.error("Failed to load stream:", err);
+            }
+        }
+
+        async function postMessage() {
+            const text = input.value.trim();
+            if (!text) return;
+            
+            const btn = document.getElementById('send-btn');
+            btn.disabled = true;
+            btn.innerText = '...';
+
+            try {
+                await fetch('/Stream', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat: text })
+                });
+                
+                input.value = '';
+                await loadStream();
+            } catch (err) {
+                console.error("Failed to post message", err);
+                alert("Failed to send. Are you offline?");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Send';
+            }
+        }
+
+        function escapeHtml(unsafe) {
+            return (unsafe||"").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Initial load
+        loadStream();
+        
+        // Auto-refresh every 5 seconds to get new messages from other devices
+        setInterval(loadStream, 5000);
+    </script>
+</body>
+</html>
