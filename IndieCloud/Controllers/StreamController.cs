@@ -9,10 +9,12 @@ namespace IndieCloud.Controllers;
 public class StreamController : ControllerBase
 {
     private readonly AppDbContext _context;
+    private readonly IConfiguration _config;
 
-    public StreamController(AppDbContext context)
+    public StreamController(AppDbContext context, IConfiguration config)
     {
         _context = context;
+        _config = config;
     }
 
     [HttpPost]
@@ -40,5 +42,32 @@ public class StreamController : ControllerBase
             .Take(limit)
             .ToListAsync();
         return Ok(messages);
+    }
+
+    [HttpPost("upload")]
+    public async Task<IActionResult> PostFile(IFormFile file)
+    {
+        if (file == null || file.Length == 0)
+            return BadRequest("No file uploaded.");
+
+        if (file.Length > 10 * 1024 * 1024) // Limit to 10MB
+            return BadRequest("File size exceeds the 10MB limit.");
+
+        var allowed = new [] { ".jpg", ".jpeg", ".png", ".gif"};
+        var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
+
+        if (!allowed.Contains(ext))
+            return BadRequest("File type not allowed.");
+
+        var uploadPath = _config["Storage:UploadPath"];        
+        Directory.CreateDirectory(uploadPath);
+
+        var storedName = $"{Guid.NewGuid()}{ext}";
+        var filePath = Path.Combine(uploadPath, storedName);
+
+        using var stream = new FileStream(filePath, FileMode.Create);
+        await file.CopyToAsync(stream);
+
+        return Ok(new {FileName = storedName, file.ContentType, file.Length});
     }
 }

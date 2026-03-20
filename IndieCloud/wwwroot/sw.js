@@ -1,4 +1,4 @@
-const CACHE_NAME = 'indiecloud-v1';
+const CACHE_NAME = 'indiecloud-v2';
 const ASSETS = [
     '/',
     '/index.html',
@@ -15,20 +15,31 @@ self.addEventListener('install', event => {
     );
 });
 
-// Fetch event - network first for API, cache first for static assets
+// Activate event - clear old caches
+self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(
+                keys.filter(key => key !== CACHE_NAME)
+                    .map(key => caches.delete(key))
+            );
+        })
+    );
+});
+
+// Fetch event - network first for API, network first for static assets to ensure updates during dev
 self.addEventListener('fetch', event => {
     if (event.request.method !== 'GET') return;
 
-    // For API calls, try network first, then cache (though we don't really cache API here)
+    // For API calls
     if (event.request.url.includes('/Stream')) {
         event.respondWith(fetch(event.request));
         return;
     }
 
-    // For static files (HTML, JS, CSS, images), try cache first, then network
+    // For static files (HTML, JS, CSS, images), try network first, then fallback to cache
+    // This helps tremendously during development so you aren't stuck on old versions
     event.respondWith(
-        caches.match(event.request).then(response => {
-            return response || fetch(event.request);
-        })
+        fetch(event.request).catch(() => caches.match(event.request))
     );
 });
