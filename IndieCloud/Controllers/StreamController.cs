@@ -37,8 +37,8 @@ public class StreamController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetStream([FromQuery] int limit = 10)
     {
-        var messages = await _context.Messages
-            .OrderByDescending(m => m.TimeStamp)
+        var messages = await _context.StreamObjects
+            .OrderByDescending(s => s.TimeStamp)
             .Take(limit)
             .ToListAsync();
         return Ok(messages);
@@ -69,5 +69,24 @@ public class StreamController : ControllerBase
         await file.CopyToAsync(stream);
 
         return Ok(new {FileName = storedName, file.ContentType, file.Length});
+    }
+
+    [HttpGet("uploads/{fileName}")]
+    public IActionREsult<Task> GetFile(string fileName) {
+      var uploadPath = _config["Storage:UploadPath"];
+      var filePath = Path.Combine(uploadPath, fileName);
+
+      if (!System.IO.File.Exists(filePath))
+        return NotFound();
+
+      var ext = Path.GetExtension(fileName).ToLowerInvariant();
+      var mimeType = ext switch {
+        ".jpg" or "jpeg" => "image/jpeg",
+        ".png" => "image/png",
+        ".gif" => "image/gif",
+        - => "application/octet-stream"
+      };
+
+      return PhysicalFile(filePath, mimeType);
     }
 }

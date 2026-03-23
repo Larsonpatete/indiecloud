@@ -179,14 +179,19 @@
                     else if (shortDevice.includes('Linux')) shortDevice = 'Linux';
                     else if (shortDevice.includes('Windows')) shortDevice = 'Windows';
                     else if (shortDevice.includes('Mac')) shortDevice = 'Mac';
+
+                    const content = msg.type === 1 
+                        ? '<img src="/stream/uploads/${mgs.fileName}" alt="image" style="max-width: 100%;" />'
+                        : '<div> class="content">${escapeHtml(msg.textContent)}</div>';
                     
                     div.innerHTML = `
                         <div class="meta">
                             <span>${shortDevice}</span>
                             <span>${date}</span>
                         </div>
-                        <div class="content">${escapeHtml(msg.chat)}</div>
+                        ${content}
                     `;
+
                     container.appendChild(div);
                 });
                 

@@ -9,4 +9,5 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Message> Messages { get; set; }
+    public DbSet<StreamObject> StreamObjects { get; set; }
 }
