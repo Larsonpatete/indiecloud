@@ -150,6 +150,7 @@
         const fileInput = document.getElementById('file-input');
         const uploadBtn = document.getElementById('upload-btn');
         let lastStreamSignature = '';
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
         // Allow sending with Enter key (but Shift+Enter for newline)
         input.addEventListener('keydown', function(e) {
@@ -225,6 +226,14 @@
             const fileUrl = `/Stream/uploads/${fileName}`;
 
             if (ext === 'pdf') {
+                if (isIOS) {
+                    return `
+                        <div class="content">
+                            <a href="${fileUrl}" target="_blank" rel="noopener">Open PDF</a>
+                        </div>
+                    `;
+                }
+
                 return `
                     <div class="content">
                         <embed src="${fileUrl}" type="application/pdf" style="width: 100%; height: 75vh; border-radius: 8px;" />
