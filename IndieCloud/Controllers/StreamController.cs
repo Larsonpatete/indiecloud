@@ -20,16 +20,16 @@ public class StreamController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> UpdateStream([FromBody] MessageDTO chat)
     {
-        var message = new Message
+        var message = new StreamObject
         {
-            Chat = chat.Chat,
+            Type = StreamDataType.Text,
+            TextContent = chat.Chat,
             TimeStamp = DateTime.UtcNow,
             Device = Request.Headers.UserAgent.ToString() ?? "Unkown"
         };
 
-        _context.Messages.Add(message);
+        _context.StreamObjects.Add(message);
         await _context.SaveChangesAsync();
-
 
         return Ok(message);
     }
@@ -53,7 +53,7 @@ public class StreamController : ControllerBase
         if (file.Length > 10 * 1024 * 1024) // Limit to 10MB
             return BadRequest("File size exceeds the 10MB limit.");
 
-        var allowed = new [] { ".jpg", ".jpeg", ".png", ".gif"};
+        var allowed = new [] { ".jpg", ".jpeg", ".png", ".pdf"};
         var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
 
         if (!allowed.Contains(ext))
@@ -68,11 +68,22 @@ public class StreamController : ControllerBase
         using var stream = new FileStream(filePath, FileMode.Create);
         await file.CopyToAsync(stream);
 
+        var streamObject = new StreamObject
+        {
+            Type = StreamDataType.Image,
+            FileName = storedName,
+            TimeStamp = DateTime.UtcNow,
+            Device = Request.Headers.UserAgent.ToString() ?? "Unkown"
+        };
+
+        _context.StreamObjects.Add(streamObject);
+        await _context.SaveChangesAsync();
+
         return Ok(new {FileName = storedName, file.ContentType, file.Length});
     }
 
     [HttpGet("uploads/{fileName}")]
-    public IActionREsult<Task> GetFile(string fileName) {
+    public async Task<IActionResult> GetFile(string fileName) {
       var uploadPath = _config["Storage:UploadPath"];
       var filePath = Path.Combine(uploadPath, fileName);
 
@@ -83,8 +94,8 @@ public class StreamController : ControllerBase
       var mimeType = ext switch {
         ".jpg" or "jpeg" => "image/jpeg",
         ".png" => "image/png",
-        ".gif" => "image/gif",
-        - => "application/octet-stream"
+        ".pdf" => "application/pdf",
+        _ => "application/octet-stream"
       };
 
       return PhysicalFile(filePath, mimeType);

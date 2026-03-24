@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   api:
     build: .
@@ -16,6 +14,19 @@ services:
       - indie-network
     volumes:
       - "${pathToStorage}:/app/data/"
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /src
+          ignore:
+            - bin/
+            - obj/
+            - .git/
+        - action: rebuild
+          path: IndieCloud.csproj
+        - action: rebuild
+          path: Dockerfile
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
