@@ -1,6 +1,7 @@
 ﻿using IndieCloud.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using IndieCloud.AllowedFiles;
 
 namespace IndieCloud.Controllers;
 
@@ -50,13 +51,13 @@ public class StreamController : ControllerBase
         if (file == null || file.Length == 0)
             return BadRequest("No file uploaded.");
 
-        if (file.Length > 10 * 1024 * 1024) // Limit to 10MB
+        if (file.Length > 15 * 1024 * 1024) // Limit to 10MB
             return BadRequest("File size exceeds the 10MB limit.");
 
-        var allowed = new [] { ".jpg", ".jpeg", ".png", ".pdf"};
         var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
+        
 
-        if (!allowed.Contains(ext))
+        if (!AllowedFiles.AllowedFiles.MimeMap.ContainsKey(ext))
             return BadRequest("File type not allowed.");
 
         var uploadPath = _config["Storage:UploadPath"];        
@@ -70,7 +71,7 @@ public class StreamController : ControllerBase
 
         var streamObject = new StreamObject
         {
-            Type = StreamDataType.Image,
+            Type = GetDataType(ext),
             FileName = storedName,
             TimeStamp = DateTime.UtcNow,
             Device = Request.Headers.UserAgent.ToString() ?? "Unkown"
@@ -91,13 +92,14 @@ public class StreamController : ControllerBase
         return NotFound();
 
       var ext = Path.GetExtension(fileName).ToLowerInvariant();
-      var mimeType = ext switch {
-        ".jpg" or "jpeg" => "image/jpeg",
-        ".png" => "image/png",
-        ".pdf" => "application/pdf",
-        _ => "application/octet-stream"
-      };
+      var mimeType = AllowedFiles.AllowedFiles.MimeMap.GetValueOrDefault(ext, "application/octet-stream");
 
       return PhysicalFile(filePath, mimeType);
     }
+
+    private static StreamDataType GetDataType(string? extension) => extension switch
+    {
+        ".wav" or ".mp3" => StreamDataType.Audio,
+        _ => StreamDataType.Image
+    };
 }

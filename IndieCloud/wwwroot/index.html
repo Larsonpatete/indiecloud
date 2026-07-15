@@ -127,7 +127,7 @@
     </main>
 
     <footer>
-        <input id="file-input" type="file" accept="image/*,application/pdf" hidden>
+        <input id="file-input" type="file" accept="image/*,application/pdf,audio/*" hidden>
         <button id="upload-btn" onclick="triggerFilePick()">Upload</button>
         <textarea id="chat-input" placeholder="Push to stream..." rows="1"></textarea>
         <button id="send-btn" onclick="postMessage()">Send</button>
@@ -218,7 +218,8 @@
         });
 
         function renderContent(msg) {
-            if (msg.type !== 1) {
+            // 0 = text, 1 = Image, 2 = Audio
+            if (msg.type === 0) {
                 return `<div class="content">${escapeHtml(msg.textContent)}</div>`;
             }
 
@@ -247,6 +248,15 @@
                 `;
             }
 
+            if (msg.type === 2) {
+                return `
+                    <div class="content">
+                        <audio controls style="width: 100%;" src="${fileUrl}"></audio>
+                    </div>
+                `;
+            }       
+
+            
             return `<img src="${fileUrl}" alt="image" style="max-width: 100%; max-height: 75vh; object-fit: contain; border-radius: 8px;" />`;
         }
 

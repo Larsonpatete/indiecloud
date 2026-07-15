@@ -11,6 +11,7 @@ public class StreamObject
 }
 
 public enum StreamDataType {
-  Text,
-  Image
+  Text = 0, // 0
+  Image = 1,  // 1
+  Audio = 2,  // 2
 }
